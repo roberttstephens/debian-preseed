@@ -1,5 +1,5 @@
 virt-install --connect=qemu:///system \
-	--location=ftp://ftp.us.debian.org/debian/dists/stable/main/installer-amd64 \
+	--location=http://ftp.us.debian.org/debian/dists/stable/main/installer-amd64/ \
 	--os-type=linux \
 	--virt-type=kvm \
 	--extra-args="\
@@ -11,6 +11,7 @@ virt-install --connect=qemu:///system \
 		netcfg/get_netmask=255.255.255.0
 		netcfg/get_gateway=192.168.122.1
 		netcfg/get_nameservers=192.168.122.1 8.8.8.8
+		console=ttyS0
 		keymap=us" \
 	--name debian_stable_preseed --ram=512 \
 	--disk=pool=default,size=5,format=qcow2,bus=virtio
